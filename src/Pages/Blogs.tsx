@@ -21,9 +21,15 @@ const Blogs = () => {
 
     xhr.send()
 
+
     async function fetchYa() {
         try {
-        const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/')
+        const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
+            headers: {
+                'Content-Type': 'application/json',
+                'API-Key': 'secret'
+            }
+        })
             return response.data
         } catch (e) {
             console.log(e)
