@@ -1,18 +1,25 @@
-import YaService, {useFetching} from "../api";
 import '../App.css';
-import {useState} from "react";
 import axios from "axios";
 
 const Blogs = () => {
-    const [posts, setPosts] = useState([]);
 
-    // const [fetchPosts, isPostsLoading, postError] = useFetching(async (limit) => {
-    //         const response = await YaService.getAll(limit);
-    //         setPosts(response.data)
-    //         console.log(response.data)
-    //     }
-    // )
+    let XDomainRequest;
+    let XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
+    // @ts-ignore
+    let xhr = new XHR();
+
+    xhr.open('GET', 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', true);
+
+    xhr.onload = function() {
+        alert( this.responseText );
+    }
+
+    xhr.onerror = function() {
+        alert( 'Ошибка ' + this.status );
+    }
+
+    xhr.send()
 
     async function fetchYa() {
         try {
@@ -25,7 +32,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'green'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'crimson'}}>GET POSTS</button>
         </div>
     );
 };
