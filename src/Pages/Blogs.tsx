@@ -27,8 +27,9 @@ const Blogs = () => {
         const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
             headers: {
                 'Content-Type': 'application/json',
-                'API-Key': 'secret',
-                'Access-Control-Allow-Origin': 'https://draft-five.vercel.app/blogs'
+                'Access-Control-Allow-Origin': 'https://draft-five.vercel.app/blogs',
+                'Access-Control-Allow-Methods': 'POST, PUT, PATCH, GET, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
             }
         })
             return response.data
@@ -39,7 +40,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'green'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'skyblue'}}>GET POSTS</button>
         </div>
     );
 };
