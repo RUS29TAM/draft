@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Blogs = () => {
 
-    let XDomainRequest = 'Access-Control-Allow-Origin';
+    let XDomainRequest = 'https://draft-five.vercel.app/blogs';
     let XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
     // @ts-ignore
@@ -26,6 +26,8 @@ const Blogs = () => {
         try {
         const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
             headers: {
+                'Content-Type': 'application/json',
+                'API-Key': 'secret',
                 'Access-Control-Allow-Origin': 'https://draft-five.vercel.app/blogs'
             }
         })
@@ -37,7 +39,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'skyblue'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'green'}}>GET POSTS</button>
         </div>
     );
 };
