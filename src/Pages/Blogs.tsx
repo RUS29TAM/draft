@@ -23,7 +23,7 @@ const Blogs = () => {
 
 
     axios.defaults.baseURL = 'https://draft-five.vercel.app/blogs';
-    axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+    axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     async function fetchYa() {
         try {
@@ -36,7 +36,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'skyblue'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'green'}}>GET POSTS</button>
         </div>
     );
 };
