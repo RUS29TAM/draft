@@ -22,16 +22,12 @@ const Blogs = () => {
     // xhr.send()
 
 
+    axios.defaults.baseURL = 'https://draft-five.vercel.app/blogs';
+    axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     async function fetchYa() {
         try {
-        const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'https://draft-five.vercel.app/blogs',
-                'Access-Control-Allow-Methods': 'POST, PUT, PATCH, GET, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization',
-            }
-        })
+        const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/')
             return response.data
         } catch (e) {
             console.log(e)
@@ -40,7 +36,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'pink'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'skyblue'}}>GET POSTS</button>
         </div>
     );
 };
