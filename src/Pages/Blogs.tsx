@@ -1,4 +1,5 @@
 import YaService, {useFetching} from "../api";
+import '../App.css';
 import {useState} from "react";
 import axios from "axios";
 
@@ -14,13 +15,18 @@ const Blogs = () => {
 
 
     async function fetchYa() {
+        try {
         const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/')
+            return response.data
+        } catch (e) {
+            console.log(e)
+        }
     }
     return (
-        <>
+        <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{color: 'blue'}}>GET POSTS</button>
-        </>
+            <button onClick={fetchYa} style={{background: 'green'}}>GET POSTS</button>
+        </div>
     );
 };
 
