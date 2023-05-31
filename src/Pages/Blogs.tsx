@@ -15,12 +15,11 @@ const Blogs = () => {
 
     async function fetchYa() {
         const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/')
-        console.log(response.data)
     }
     return (
         <>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{color: 'red'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{color: 'blue'}}>GET POSTS</button>
         </>
     );
 };
