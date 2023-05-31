@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Blogs = () => {
 
-    let XDomainRequest;
+    let XDomainRequest = 'Access-Control-Allow-Origin';
     let XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 
     // @ts-ignore
@@ -38,7 +38,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'skyblue'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'green'}}>GET POSTS</button>
         </div>
     );
 };
