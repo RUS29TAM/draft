@@ -38,7 +38,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'gainsboro'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: 'skyblue'}}>GET POSTS</button>
         </div>
     );
 };
