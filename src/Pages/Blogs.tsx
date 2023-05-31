@@ -21,11 +21,6 @@ const Blogs = () => {
     //
     // xhr.send()
 
-
-    axios.defaults.baseURL = 'https://draft-five.vercel.app/blogs';
-    axios.defaults.headers.post['Content-Type'] ='application/x-www-form-urlencoded';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-
     async function fetchYa() {
         try {
         const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
