@@ -39,7 +39,8 @@ const Blogs = () => {
             const response = await axios.get(proxyUrl + url, {
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
-                    'Authorization': 'b0ba0aeecfb545598d9964c0700dea76'
+                    'Authorization': 'b0ba0aeecfb545598d9964c0700dea76',
+                    'X-Org-ID': 'd963422980c3406cb1b8039f322d776c',
                 }
             });
             return response.data;
@@ -57,7 +58,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: '#5fccfb'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: '#d95ffb'}}>GET POSTS</button>
         </div>
     );
 };
