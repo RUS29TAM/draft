@@ -34,7 +34,7 @@ const Blogs = () => {
 
     async function fetchYa() {
         try {
-            const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/';
+            const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1=apikey=08072019Rus*';
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
             const response = await axios.get(proxyUrl + url, {headers: {'X-Requested-With': 'XMLHttpRequest'}});
             return response.data;
@@ -46,7 +46,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: '#71ff71'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: '#921bf4'}}>GET POSTS</button>
         </div>
     );
 };
