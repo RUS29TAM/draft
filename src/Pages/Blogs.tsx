@@ -36,7 +36,12 @@ const Blogs = () => {
         try {
             const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1';
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const response = await axios.get(proxyUrl + url, {headers: {'X-Requested-With': 'XMLHttpRequest'}});
+            const response = await axios.get(proxyUrl + url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Authorization': 'OAut 08072019Rus*'
+                }
+            });
             return response.data;
         } catch (e) {
             // @ts-ignore
@@ -52,7 +57,7 @@ const Blogs = () => {
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: '#718dff'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: '#71ffee'}}>GET POSTS</button>
         </div>
     );
 };
