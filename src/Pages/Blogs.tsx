@@ -23,30 +23,36 @@ const Blogs = () => {
 
     // async function fetchYa() {
     //     try {
-    //     const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
-    //         headers: {'X-Requested-With': 'XMLHttpRequest'}
-    //     })
-    //         return response.data
+    //         const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1';
+    //         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    //         const response = await axios.get(proxyUrl + url, {headers: {'X-Requested-With': 'XMLHttpRequest'}});
+    //         return response.data;
     //     } catch (e) {
-    //         console.log(e)
+    //         console.log(e);
     //     }
     // }
 
     async function fetchYa() {
         try {
-            const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1=apikey=08072019Rus*';
+            const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1';
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
             const response = await axios.get(proxyUrl + url, {headers: {'X-Requested-With': 'XMLHttpRequest'}});
             return response.data;
         } catch (e) {
-            console.log(e);
+            // @ts-ignore
+            if (e.response && e.response.status === 403) {
+                console.log("Недостаточно учетных данных для авторизации. Пожалуйста, проверьте свои разрешения.");
+            } else {
+                // @ts-ignore
+                console.log('Error: ', e.message);
+            }
         }
     }
 
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: '#921bf4'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: '#718dff'}}>GET POSTS</button>
         </div>
     );
 };
