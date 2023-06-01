@@ -21,20 +21,32 @@ const Blogs = () => {
     //
     // xhr.send()
 
+    // async function fetchYa() {
+    //     try {
+    //     const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
+    //         headers: {'X-Requested-With': 'XMLHttpRequest'}
+    //     })
+    //         return response.data
+    //     } catch (e) {
+    //         console.log(e)
+    //     }
+    // }
+
     async function fetchYa() {
         try {
-        const response = await axios.get('https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/', {
-            headers: {'X-Requested-With': 'XMLHttpRequest'}
-        })
-            return response.data
+            const url = 'https://forms.yandex.ru/cloud/6476ff3cc417f301c195c8d1/';
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const response = await axios.get(proxyUrl + url, {headers: {'X-Requested-With': 'XMLHttpRequest'}});
+            return response.data;
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
     }
+
     return (
         <div className={'wrapper'}>
             <h1>Blog Articles</h1>
-            <button onClick={fetchYa} style={{background: 'lightblue'}}>GET POSTS</button>
+            <button onClick={fetchYa} style={{background: '#71ff71'}}>GET POSTS</button>
         </div>
     );
 };
